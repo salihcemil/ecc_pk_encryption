@@ -5,21 +5,23 @@ import { Container, Typography, TextField, Box, Button } from '@mui/material';
 
 const Encrypt = () => {
   const [inputText, setInputText] = useState('');
-  const [password, setPassword] = useState('');
+  const [publicKey, setPublicKey] = useState('');
   const [encryptedText, setEncryptedText] = useState('');
   const [errorMessage, setErrorMessage] = useState('');
   
-  const isButtonDisabled = inputText.trim() === '' || password.trim() === '';
+  const isButtonDisabled = inputText.trim() === '' || publicKey.trim() === '';
 
   const handleEncryptClick = () => {
+    console.log(publicKey);
+    console.log(inputText);
+    encryptFunction(publicKey, inputText);
+  };
+
+  const validatePassword = () => {
     // ... (same code as before)
   };
 
-  const validatePassword = (password) => {
-    // ... (same code as before)
-  };
-
-  const encryptFunction = (text, password) => {
+  const encryptFunction = (key, input) => {
     // ... (same code as before)
   };
 
@@ -60,7 +62,7 @@ const Encrypt = () => {
           variant="outlined"
           margin="normal"
           placeholder="Şifreyi buraya girin..."
-          onChange={(e) => setPassword(e.target.value)}
+          onChange={(e) => setPublicKey(e.target.value)}
         />
       </Box>
 

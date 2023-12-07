@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Box, Typography, TextField, Button } from '@mui/material';
 import 'fast-text-encoding';
+import CryptoJS from 'crypto-js';
 
 const KeyGen = () => {
   const [password, setPassword] = useState('');
@@ -8,25 +9,31 @@ const KeyGen = () => {
   const [publicKey, setPublicKey] = useState('');
 
   const handleGenerateClick = async () => {
-    try {
-        const textEncoder = new TextEncoder();
-        const encodedPassword = await crypto.subtle.digest('SHA-256', textEncoder.encode(password));
-        const derivedKey = await crypto.subtle.importKey('raw', encodedPassword, 'PBKDF2', false, ['deriveBits']);
-
-        const keyMaterial = await crypto.subtle.deriveBits(
-          { name: 'PBKDF2', salt: new Uint8Array(16), iterations: 1000000, hash: 'SHA-256' },
-          derivedKey,
-          256
-        );
-
-        const key = await crypto.subtle.importKey('raw', keyMaterial, 'AES-CTR', true, ['encrypt', 'decrypt']);
-        const publicKey = await crypto.subtle.exportKey('jwk', key);
-        setPublicKey(publicKey.k);
-
-        } catch (error) {
-          console.error('Encryption error:', error);
-        }
+    generateKeys(password);
   };
+
+  const generateKeys = (password) => {
+    const EC = require('elliptic').ec;
+    const ec = new EC('secp256k1');
+    const hashedPassword = CryptoJS.SHA256(password).toString(CryptoJS.enc.Hex);
+    let keyPair = ec.keyFromPrivate(hashedPassword);
+    
+    const uncompressedPublicKeyHex = keyPair.getPublic().encode('hex');
+    const x = uncompressedPublicKeyHex.slice(2, 66);
+
+    // Y koordinatının işaretini belirle
+    const yIsEven = parseInt(uncompressedPublicKeyHex.slice(-2), 16) % 2 === 0;
+    const signByte = yIsEven ? "02" : "03";
+
+    // Compressed public key'i oluştur
+    const compressedPublicKeyHex = signByte + x;
+
+    console.log('private key: ',keyPair.getPrivate('hex'));
+    console.log('public key: ', compressedPublicKeyHex);
+
+    setPrivateKey(keyPair.getPrivate('hex'));
+    setPublicKey(compressedPublicKeyHex);
+  }
 
   const isButtonDisabled = password === '';
 
