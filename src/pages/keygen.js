@@ -1,19 +1,31 @@
 import React, { useState } from 'react';
 import { Box, Typography, TextField, Button } from '@mui/material';
+import 'fast-text-encoding';
 
 const KeyGen = () => {
   const [password, setPassword] = useState('');
   const [privateKey, setPrivateKey] = useState('');
   const [publicKey, setPublicKey] = useState('');
 
-  const handleGenerateClick = () => {
-    // Burada şifre oluşturma ve anahtarları hesaplama işlemlerini gerçekleştirebilirsiniz.
-    // Örnek olarak şu an sadece konsola yazdırıyorum.
-    console.log('Generated Password:', password);
+  const handleGenerateClick = async () => {
+    try {
+        const textEncoder = new TextEncoder();
+        const encodedPassword = await crypto.subtle.digest('SHA-256', textEncoder.encode(password));
+        const derivedKey = await crypto.subtle.importKey('raw', encodedPassword, 'PBKDF2', false, ['deriveBits']);
 
-    // Örnek olarak şifre ile anahtarları aynı yapacağım.
-    setPrivateKey(password);
-    setPublicKey(password);
+        const keyMaterial = await crypto.subtle.deriveBits(
+          { name: 'PBKDF2', salt: new Uint8Array(16), iterations: 1000000, hash: 'SHA-256' },
+          derivedKey,
+          256
+        );
+
+        const key = await crypto.subtle.importKey('raw', keyMaterial, 'AES-CTR', true, ['encrypt', 'decrypt']);
+        const publicKey = await crypto.subtle.exportKey('jwk', key);
+        setPublicKey(publicKey.k);
+
+        } catch (error) {
+          console.error('Encryption error:', error);
+        }
   };
 
   const isButtonDisabled = password === '';
