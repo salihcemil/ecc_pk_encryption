@@ -13,26 +13,28 @@ const KeyGen = () => {
   };
 
   const generateKeys = (password) => {
-    const EC = require('elliptic').ec;
-    const ec = new EC('secp256k1');
-    const hashedPassword = CryptoJS.SHA256(password).toString(CryptoJS.enc.Hex);
-    let keyPair = ec.keyFromPrivate(hashedPassword);
-    
-    const uncompressedPublicKeyHex = keyPair.getPublic().encode('hex');
-    const x = uncompressedPublicKeyHex.slice(2, 66);
+    try{
+      const EC = require('elliptic').ec;
+      const ec = new EC('secp256k1');
+      const hashedPassword = CryptoJS.SHA256(password).toString(CryptoJS.enc.Hex);
+      let keyPair = ec.keyFromPrivate(hashedPassword);
+      
+      const uncompressedPublicKeyHex = keyPair.getPublic().encode('hex');
+      const x = uncompressedPublicKeyHex.slice(2, 66);
 
-    // Y koordinatının işaretini belirle
-    const yIsEven = parseInt(uncompressedPublicKeyHex.slice(-2), 16) % 2 === 0;
-    const signByte = yIsEven ? "02" : "03";
+      // Y koordinatının işaretini belirle
+      const yIsEven = parseInt(uncompressedPublicKeyHex.slice(-2), 16) % 2 === 0;
+      const signByte = yIsEven ? "02" : "03";
 
-    // Compressed public key'i oluştur
-    const compressedPublicKeyHex = signByte + x;
+      // Compressed public key'i oluştur
+      const compressedPublicKeyHex = signByte + x;
 
-    console.log('private key: ',keyPair.getPrivate('hex'));
-    console.log('public key: ', compressedPublicKeyHex);
-
-    setPrivateKey(keyPair.getPrivate('hex'));
-    setPublicKey(compressedPublicKeyHex);
+      setPrivateKey(keyPair.getPrivate('hex'));
+      setPublicKey(compressedPublicKeyHex);
+    }
+    catch(error){
+      alert(error);
+    }
   }
 
   const isButtonDisabled = password === '';

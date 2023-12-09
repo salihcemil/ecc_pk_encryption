@@ -2,6 +2,7 @@
 
 import React, { useState } from 'react';
 import { Container, Typography, TextField, Box, Button } from '@mui/material';
+import init, * as ecies from "ecies-wasm";
 
 const Encrypt = () => {
   const [inputText, setInputText] = useState('');
@@ -12,8 +13,6 @@ const Encrypt = () => {
   const isButtonDisabled = inputText.trim() === '' || publicKey.trim() === '';
 
   const handleEncryptClick = () => {
-    console.log(publicKey);
-    console.log(inputText);
     encryptFunction(publicKey, inputText);
   };
 
@@ -21,8 +20,36 @@ const Encrypt = () => {
     // ... (same code as before)
   };
 
-  const encryptFunction = (key, input) => {
-    // ... (same code as before)
+
+  const fromHexString = (hexString) =>
+    Uint8Array.from(hexString.match(/.{1,2}/g).map((byte) => parseInt(byte, 16)));
+  
+  //byteArray(uint8array) to hex
+  function toHexString(byteArray) {
+    return Array.from(byteArray, function(byte) {
+      return ('0' + (byte & 0xFF).toString(16)).slice(-2);
+    }).join('')
+  }
+
+
+  const encryptFunction = async (key, input) => {
+    try {
+      await init(); // Initialize the WASM module
+      const pk = fromHexString(key); //from hex to byte array(uint8array)
+
+      const utf8EncodeText = new TextEncoder();
+      const messsage = input;// 'hello'; //string
+      const data = utf8EncodeText.encode(messsage); //from string to byteArray(uint8array)
+
+      // const [sk, pk] = ecies.generateKeypair(); //generate ecdh key pair for ecies pk encryption
+
+      const encrypted = ecies.encrypt(pk, data); //pk: bytearray(uint8array), data: byteArray(uint8array)
+
+      setEncryptedText(toHexString(encrypted));
+    }
+    catch(error){
+      alert(error);
+    }
   };
 
   return (
