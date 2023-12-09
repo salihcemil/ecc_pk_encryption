@@ -1,27 +1,3 @@
-// // src/App.js
-
-// import React from 'react';
-// import { Container, CssBaseline } from '@mui/material';
-// import Header from './components/Header';
-// import Footer from './components/Footer';
-// import './App.css';
-
-// function App() {
-//   return (
-//     <React.Fragment>
-//       <CssBaseline />
-//       <Header />
-//       <Container maxWidth="sm">
-//         <h2>Sayfa İçeriği</h2>
-//         <p>Bu içerik sayfa değişse de sabit kalacaktir.</p>
-//       </Container>
-//       <Footer />
-//     </React.Fragment>
-//   );
-// }
-
-// export default App;
-
 // src/App.js
 
 import React from 'react';
