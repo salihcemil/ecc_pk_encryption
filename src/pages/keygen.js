@@ -64,6 +64,7 @@ const KeyGen = () => {
       <Box sx={{ marginTop: 2 }}>
         <Typography variant="subtitle1">Private Key:</Typography>
         <TextField
+          type="password"
           variant="outlined"
           fullWidth
           margin="normal"
@@ -75,6 +76,7 @@ const KeyGen = () => {
         </Typography>
         <TextField
           variant="outlined"
+          multiline
           fullWidth
           margin="normal"
           value={publicKey}

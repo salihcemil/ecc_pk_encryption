@@ -85,6 +85,7 @@ const Encrypt = () => {
         <Typography variant="h5">Public Key</Typography>
         <TextField
         //   type="password"
+          multiline
           fullWidth
           variant="outlined"
           margin="normal"
