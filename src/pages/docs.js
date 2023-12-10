@@ -87,8 +87,8 @@ const docs = () => {
         <h2>Elliptic Curve Diffie-Hellman (ECDH)</h2>
 
         <p>
-            ECDH, iki taraf arasında güvenli bir anahtar değişimi sağlayan bir protokoldür. Her iki taraf da birer ECDH anahtar
-            çiftine sahiptir: biri genel anahtar, diğeri özel anahtardır.
+            ECDH is a protocol that enables secure key exchange between two parties. Each party has an ECDH key pair: 
+            one is the public key, and the other is the private key.
         </p>
         
 
