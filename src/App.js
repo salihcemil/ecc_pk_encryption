@@ -1,8 +1,6 @@
-// src/App.js
-
 import React from 'react';
 import { Routes, Route } from 'react-router-dom';
-import { CssBaseline, Container } from '@mui/material'; // CssBaseline ve Container'ı @mui/material'den import edin
+import { CssBaseline, Container, Box } from '@mui/material';
 import Header from './components/Header';
 import Footer from './components/Footer';
 import Encrypt from './pages/encrypt';
@@ -15,15 +13,17 @@ function App() {
     <React.Fragment>
       <CssBaseline />
       <Header />
-      <Container maxWidth="sm">
-        <Routes>
-          <Route path="/" element={<h2>Anasayfa İçeriği</h2>} />
-          <Route path="/encrypt" element={<Encrypt />} />
-          <Route path="/decrypt" element={<Decrypt />} />
-          <Route path="/keygen" element={<KeyGen />} />
-        </Routes>
-      </Container>
-      <Footer />
+      <Box sx={{ display: 'flex', flexDirection: 'column', minHeight: '100vh' }}>
+        <Container component="main" maxWidth="md" sx={{ flexGrow: 1 }}>
+          <Routes>
+            <Route path="/" element={<h2>Anasayfa İçeriği</h2>} />
+            <Route path="/encrypt" element={<Encrypt />} />
+            <Route path="/decrypt" element={<Decrypt />} />
+            <Route path="/keygen" element={<KeyGen />} />
+          </Routes>
+        </Container>
+        <Footer className="Footer" sx={{ marginTop: 'auto' }} />
+      </Box>
     </React.Fragment>
   );
 }

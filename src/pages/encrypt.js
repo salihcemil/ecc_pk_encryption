@@ -89,7 +89,7 @@ const Encrypt = () => {
           fullWidth
           variant="outlined"
           margin="normal"
-          placeholder="Şifreyi buraya girin..."
+          placeholder="Acik anahtari buraya girin..."
           onChange={(e) => setPublicKey(e.target.value)}
         />
       </Box>
@@ -107,6 +107,7 @@ const Encrypt = () => {
           color="primary"
           onClick={handleEncryptClick}
           disabled={isButtonDisabled}
+          sx={{ borderRadius: '8px' }}
         >
           Encrypt
         </Button>
@@ -115,9 +116,19 @@ const Encrypt = () => {
             {errorMessage}
           </Typography>
         )}
-        <Typography variant="body1" sx={{ marginTop: '8px' }}>
-          {encryptedText}
-        </Typography>
+        <TextField
+          variant="outlined"
+          margin="normal"
+          value={encryptedText}
+          disabled
+          fullWidth
+          multiline
+          rows={4}
+          placeholder="Şifrelenmiş Metin"
+          InputProps={{
+            sx: { borderRadius: '8px' },
+          }}
+        />
       </Box>
     </Container>
   );

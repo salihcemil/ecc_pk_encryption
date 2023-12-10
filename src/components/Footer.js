@@ -1,5 +1,3 @@
-// src/components/Footer.js
-
 import React from 'react';
 import { AppBar, Toolbar, Typography, Box } from '@mui/material';
 
