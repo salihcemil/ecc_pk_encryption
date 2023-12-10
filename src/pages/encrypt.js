@@ -60,7 +60,7 @@ const Encrypt = () => {
         <Typography variant="h5">Text to Encrypt</Typography>
         <TextField
           multiline
-          rows={8}
+          rows={4}
           fullWidth
           variant="outlined"
           margin="normal"
@@ -118,7 +118,7 @@ const Encrypt = () => {
           disabled
           fullWidth
           multiline
-          rows={4}
+          rows={3}
           placeholder="Encrypted message"
           InputProps={{
             sx: { borderRadius: '8px' },

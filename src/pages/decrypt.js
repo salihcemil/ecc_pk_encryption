@@ -71,7 +71,7 @@ const Decrypt = () => {
         <Typography variant="h5">Encrypted Text</Typography>
         <TextField
           multiline
-          rows={8}
+          rows={4}
           fullWidth
           variant="outlined"
           margin="normal"
@@ -127,10 +127,20 @@ const Decrypt = () => {
             {errorMessage}
           </Typography>
         )}
-        <Typography variant="body1" sx={{ marginTop: '8px' }}>
-          {decryptedText}
-        </Typography>
       </Box>
+      <TextField
+          variant="outlined"
+          margin="normal"
+          value={decryptedText}
+          disabled
+          fullWidth
+          multiline
+          rows={3}
+          placeholder="Decrypted message"
+          InputProps={{
+            sx: { borderRadius: '8px' },
+          }}
+        />
     </Container>
   );
 };
