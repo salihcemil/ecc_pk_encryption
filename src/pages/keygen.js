@@ -7,9 +7,18 @@ const KeyGen = () => {
   const [password, setPassword] = useState('');
   const [privateKey, setPrivateKey] = useState('');
   const [publicKey, setPublicKey] = useState('');
+  const [passwordLengthError, setPasswordLengthError] = useState(false);
 
   const handleGenerateClick = async () => {
-    generateKeys(password);
+    if (password.length >= 12 && hasRequiredComplexity(password)) {
+      setPasswordLengthError(false);
+      generateKeys(password);
+    } else {
+      setPasswordLengthError(true);
+      alert(
+        "Password must be at least 12 characters long and include at least one uppercase letter, one lowercase letter, one digit, and one special character."
+      );
+    }
   };
 
   const generateKeys = (password) => {
@@ -36,7 +45,22 @@ const KeyGen = () => {
     }
   };
 
-  const isButtonDisabled = password === '';
+  const isButtonDisabled = password === '' || password.length < 12;
+
+  const hasRequiredComplexity = (password) => {
+    // Password must contain at least one uppercase letter, one lowercase letter, one digit, and one special character
+    const uppercaseRegex = /[A-Z]/;
+    const lowercaseRegex = /[a-z]/;
+    const digitRegex = /\d/;
+    const specialCharacterRegex = /[!@#$%^&*(),.?":{}|<>]/;
+
+    return (
+      uppercaseRegex.test(password) &&
+      lowercaseRegex.test(password) &&
+      digitRegex.test(password) &&
+      specialCharacterRegex.test(password)
+    );
+  };
 
   return (
     <Container
@@ -71,9 +95,17 @@ const KeyGen = () => {
           fullWidth
           margin="normal"
           value={password}
-          onChange={(e) => setPassword(e.target.value)}
+          onChange={(e) => {
+            setPassword(e.target.value);
+            setPasswordLengthError(false); // Reset password length error on input change
+          }}
           sx={{ borderRadius: '8px', marginBottom: '1rem' }}
         />
+        {passwordLengthError && (
+          <Typography variant="body2" color="error">
+            Password must be at least 12 characters long and meet complexity requirements.
+          </Typography>
+        )}
         <Button
           variant="contained"
           color="primary"
