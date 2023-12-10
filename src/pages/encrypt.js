@@ -69,7 +69,7 @@ const Encrypt = () => {
           fullWidth
           variant="outlined"
           margin="normal"
-          placeholder="Metni buraya girin..."
+          placeholder="Message entry..."
           onChange={(e) => setInputText(e.target.value)}
         />
       </Box>
@@ -89,7 +89,7 @@ const Encrypt = () => {
           fullWidth
           variant="outlined"
           margin="normal"
-          placeholder="Acik anahtari buraya girin..."
+          placeholder="Public key input..."
           onChange={(e) => setPublicKey(e.target.value)}
         />
       </Box>
@@ -124,11 +124,15 @@ const Encrypt = () => {
           fullWidth
           multiline
           rows={4}
-          placeholder="Şifrelenmiş Metin"
+          placeholder="Encrypted message"
           InputProps={{
             sx: { borderRadius: '8px' },
           }}
         />
+        <br />
+        <br />
+        <br />
+        <br />
       </Box>
     </Container>
   );

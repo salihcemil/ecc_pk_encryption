@@ -57,3 +57,13 @@
 .Footer {
   flex-shrink: 0;
 }
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+.responsive-image {
+  max-width: 100%;
+  height: auto;
+}

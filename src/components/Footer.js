@@ -7,7 +7,7 @@ const Footer = () => {
       <AppBar position="static" color="primary">
         <Toolbar>
           <Typography variant="body2" color="inherit">
-            © 2023 Material-UI Uygulaması
+            © 2023 ECC PK Encryption via User Password
           </Typography>
         </Toolbar>
       </AppBar>

@@ -75,7 +75,7 @@ const Decrypt = () => {
           fullWidth
           variant="outlined"
           margin="normal"
-          placeholder="Metni buraya girin..."
+          placeholder="Encrypted message..."
           onChange={(e) => setInputText(e.target.value)}
           sx={{ borderRadius: '8px', marginBottom: '1rem' }}
         />
@@ -99,7 +99,7 @@ const Decrypt = () => {
           fullWidth
           variant="outlined"
           margin="normal"
-          placeholder="Şifreyi buraya girin..."
+          placeholder="Password..."
           onChange={(e) => setPassword(e.target.value)}
           sx={{ borderRadius: '8px', marginBottom: '1rem' }}
         />
