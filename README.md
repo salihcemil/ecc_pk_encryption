@@ -1,5 +1,10 @@
-<div >
-        <h1>Disclaimer</h1>
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Disclaimer</title>
         <p>This project is intended for experimental purposes only and is not recommended for use in real production environments. 
             The information and guidelines presented here are for informational purposes only and aim to provide a general understanding. 
             Any reader or user should use this information at their own risk and responsibility.
@@ -15,7 +20,12 @@
 
             Before making any changes to any application or system, users should seek assistance and verification support 
             from information technology experts. The use of the guidelines presented in this article is entirely at the
-            discretion and responsibility of the reader.</p>
+            discretion and responsibility of the reader.
+        </p>
+</head>
+<body>
+    <div >
+        
         <h1>Elliptic Curve</h1>
 
         <p>
@@ -37,23 +47,7 @@
         </p>
 
         <p>
-            Elliptic curves are often expressed by mathematical equations, typically represented by the formula
-            <math xmlns="http://www.w3.org/1998/Math/MathML" display="block">
-                <msup>
-                    <mi>y</mi>
-                    <mn>2</mn>
-                </msup>
-                <mo>=</mo>
-                <msup>
-                    <mi>x</mi>
-                    <mn>3</mn>
-                </msup>
-                <mo>+</mo>
-                <mi>a</mi>
-                <mi>x</mi>
-                <mo>+</mo>
-                <mi>b</mi>
-            </math>.
+            Elliptic curves are often expressed by mathematical equations, typically represented by the formula.
             These curves consist of points on a specific field on a plane. 
             The appeal of elliptic curves lies in the addition operation defined to obtain the intersection point of a 
             specific point with itself along a certain line. This addition operation is determined by a group structure, 
@@ -154,6 +148,9 @@
         <br />
         <br />
     </div>
+</body>
+</html>
+
 <!-- 
 # Getting Started with Create React App
 
