@@ -7,9 +7,26 @@ import ellipticCurveGif from '../images/lines.gif'
 const docs = () => {
   return (
     <div >
-      <h1>Elliptic Curve</h1>
+        <h1>Disclaimer</h1>
+        <p>This project is intended for experimental purposes only and is not recommended for use in real production environments. 
+            The information and guidelines presented here are for informational purposes only and aim to provide a general understanding. 
+            Any reader or user should use this information at their own risk and responsibility.
 
-      <p>
+            The content of this document is for information purposes only. 
+            Readers and users are strongly advised to consult with an expert before using this information in their applications in 
+            production environments. It is crucial to thoroughly test applications in detail to identify potential errors, 
+            optimize performance, and address security vulnerabilities.
+
+            Publishers accept no liability for any errors, omissions, direct or indirect damages, 
+            losses, or material harm arising from this project. Ensuring the accuracy and currency of the information 
+            in this article is the responsibility of the user.
+
+            Before making any changes to any application or system, users should seek assistance and verification support 
+            from information technology experts. The use of the guidelines presented in this article is entirely at the
+            discretion and responsibility of the reader.</p>
+        <h1>Elliptic Curve</h1>
+
+        <p>
         Elliptic Curve is a mathematical structure used in cryptographic key exchange protocols and digital signatures. 
         Often referred to as the "elliptic curve," this structure is composed of a set of points defined on a mathematical curve. 
         This curve is determined by a group structure, and a specific addition operation is defined between points.
@@ -124,6 +141,7 @@ const docs = () => {
             Therefore, the application addresses a critical security concern by enabling the generation of a key pair solely through 
             a password, without the need for the public key associated with an Ethereum address. This approach ensures the feasibility 
             of public key encryption without exposing the private key, mitigating potential vulnerabilities in cryptographic operations.
+            Check the detailed article <a href="https://medium.com/metamask/metamask-api-method-deprecation-2b0564a84686" target="_blank">here</a> .
         </p>
         <img src={eccKeyGen} alt="Elliptic Curve Key Generation" style={{ width: '800px', height: 'auto'}}  />
 
