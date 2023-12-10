@@ -7,16 +7,13 @@
         <p>This project is intended for experimental purposes only and is not recommended for use in real production environments. 
             The information and guidelines presented here are for informational purposes only and aim to provide a general understanding. 
             Any reader or user should use this information at their own risk and responsibility.
-
             The content of this document is for information purposes only. 
             Readers and users are strongly advised to consult with an expert before using this information in their applications in 
             production environments. It is crucial to thoroughly test applications in detail to identify potential errors, 
             optimize performance, and address security vulnerabilities.
-
             Publishers accept no liability for any errors, omissions, direct or indirect damages, 
             losses, or material harm arising from this project. Ensuring the accuracy and currency of the information 
             in this article is the responsibility of the user.
-
             Before making any changes to any application or system, users should seek assistance and verification support 
             from information technology experts. The use of the guidelines presented in this article is entirely at the
             discretion and responsibility of the reader.
@@ -24,27 +21,22 @@
 </head>
 <body>
     <div >
-        
         <h1>Elliptic Curve</h1>
-
         <p>
         Elliptic Curve is a mathematical structure used in cryptographic key exchange protocols and digital signatures. 
         Often referred to as the "elliptic curve," this structure is composed of a set of points defined on a mathematical curve. 
         This curve is determined by a group structure, and a specific addition operation is defined between points.
         </p>
         <h2>Operation Principle</h2>
-
         <p>
             The elliptic curve consists of points on a field, and mathematical operations are performed on these points. 
             The addition operation between two points involves finding a third point on the curve. 
             Elliptic curves operate in modular arithmetic, ensuring that results are taken modulo a specific value.
-
             Elliptic curves emerge as significant mathematical structures playing a crucial role in cryptography and mathematics. 
             These curves form the foundation of robust algorithms used in cryptographic applications such as key exchange 
             and digital signatures. To understand elliptic curves, it is essential to grasp fundamental concepts, including 
             how these curves are drawn and how points on them are determined.
         </p>
-
         <p>
             Elliptic curves are often expressed by mathematical equations, typically represented by the formula.
             These curves consist of points on a specific field on a plane. 
@@ -60,7 +52,6 @@
             the intersection point of a point with itself along the line creates another point. This characteristic provides 
             the mathematical foundations that can be securely and effectively used in key exchange and digital signature algorithms.
         </p>
-
         <p>
             Large random numbers play a crucial role in the security of elliptic curves. These numbers, especially used in key 
             generation processes and security protocols, facilitate the selection of a specific point on the curve. 
@@ -68,56 +59,42 @@
             Large random numbers are employed in securely creating private keys, 
             thus establishing a robust foundation for cryptographic applications.
         </p>
-
         <h2>Elliptic Curve Diffie-Hellman (ECDH)</h2>
-
         <p>
             ECDH, iki taraf arasında güvenli bir anahtar değişimi sağlayan bir protokoldür. Her iki taraf da birer ECDH anahtar
             çiftine sahiptir: biri genel anahtar, diğeri özel anahtardır.
-        </p>
-        
-
+        </p>       
         <h3>Operation Principle</h3>
-
         <ol>
             <li>Each party generates its private key and receives the public key of the other party.</li>
             <li>Both parties calculate a common point with their private keys and the public key of the other party.</li>
             <li>This common point is used to create a shared secret key.</li>
         </ol>
-
         <p>
             ECDH provides robust security during key exchange and ensures privacy during data exchange.
         </p>
-
         <h2>Elliptic Curve Integrated Encryption Scheme (ECIES)</h2>
-
         <p>
             ECIES is a hybrid encryption protocol that utilizes Elliptic Curve Cryptography, 
             often combining asymmetric and symmetric encryption methods.
         </p>
-
         <h3>Operation Principle</h3>
-
         <ol>
             <li>The sender generates a random symmetric key for the recipient.</li>
             <li>This key is securely encrypted for the recipient.</li>
             <li>The recipient decrypts the encrypted symmetric key using its private key.</li>
             <li>The obtained symmetric key is used to decrypt the message.</li>
         </ol>
-
         <p>
             ECIES ensures secure key exchange and encryption, facilitating the secure transmission of messages.
         </p>
-
         <p>
             This document outlines the fundamental principles of Elliptic Curve Cryptography and how these principles are applied.
             For more details and practical examples, it is recommended to refer to relevant cryptography literature.
         </p>
-
         <h2>
             Motivation
         </h2>
-
         <p>
             Motivation for the developed application stems from the historical allowance of MetaMask for programmatically exporting 
             the public key and encrypting messages with the public key. MetaMask has, however, phased out these features. 
@@ -129,7 +106,6 @@
             Check the detailed article <a href="https://medium.com/metamask/metamask-api-method-deprecation-2b0564a84686" target="_blank">here</a> .
         </p>
         <img src={eccKeyGen} alt="Elliptic Curve Key Generation" style={{ width: '800px', height: 'auto'}}  />
-
         <p>
             The workflow of the project is outlined as follows: the recipient generates a key pair with a password. 
             It is not necessary for the recipient to know or store the private key associated with this generated key pair. 
@@ -141,83 +117,6 @@
             reproduce the key pair, and then decrypts the message using the private key.
         </p>
         <img src={diagram} alt="flow diagram" style={{ width: '800px', height: 'auto'}} />
-
-        <br />
-        <br />
-        <br />
-        <br />
     </div>
 </body>
 </html>
-
-<!-- 
-# Getting Started with Create React App
-
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
-
-## Available Scripts
-
-In the project directory, you can run:
-
-### `npm start`
-
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
-
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
-
-### `npm test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify) -->
