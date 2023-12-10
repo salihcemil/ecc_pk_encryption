@@ -3,7 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Disclaimer</title>
+</head>
+<body>
+    <div >
+        <h1>Disclaimer</h1>
         <p>This project is intended for experimental purposes only and is not recommended for use in real production environments. 
             The information and guidelines presented here are for informational purposes only and aim to provide a general understanding. 
             Any reader or user should use this information at their own risk and responsibility.
@@ -18,9 +21,6 @@
             from information technology experts. The use of the guidelines presented in this article is entirely at the
             discretion and responsibility of the reader.
         </p>
-</head>
-<body>
-    <div >
         <h1>Elliptic Curve</h1>
         <p>
         Elliptic Curve is a mathematical structure used in cryptographic key exchange protocols and digital signatures. 
