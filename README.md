@@ -61,8 +61,7 @@
         </p>
         <h2>Elliptic Curve Diffie-Hellman (ECDH)</h2>
         <p>
-            ECDH, iki taraf arasında güvenli bir anahtar değişimi sağlayan bir protokoldür. Her iki taraf da birer ECDH anahtar
-            çiftine sahiptir: biri genel anahtar, diğeri özel anahtardır.
+            Elliptic Curve is a mathematical structure used in cryptographic key exchange protocols and digital signatures. Often referred to as the "elliptic curve," this structure is composed of a set of points defined on a mathematical curve. This curve is determined by a group structure, and a specific addition operation is defined between points.
         </p>       
         <h3>Operation Principle</h3>
         <ol>
